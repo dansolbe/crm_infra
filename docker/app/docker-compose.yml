@@ -1,0 +1,7 @@
+services:
+  crm-api:
+    build: .
+    container_name: crm_back_api
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
