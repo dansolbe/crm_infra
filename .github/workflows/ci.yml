@@ -22,13 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd docker/app
-          echo "===current dir===="
-          pwd
-          echo "===repo root==="
-          ls -la
-          echo "====docker/app ontent===="
-          cat requirements.txt
-          pip install -t requirements.txt
+          pip install -r requirements.txt
           pip install pytest
 
       - name: Run pytest
