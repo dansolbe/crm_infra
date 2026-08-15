@@ -19,7 +19,7 @@ jobs:
       with:
         python-version: "3.11"
 
-      - name: Inst dependencies
+      - name: Install dependencies
         run: |
           cd docker/app
           pip install -t requirements.txt
