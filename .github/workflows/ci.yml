@@ -26,7 +26,7 @@ jobs:
           echo "===repo root==="
           ls -la
           echo "====docker/app ontent===="
-          cat requirement.txt
+          cat requirements.txt
           cd docker/app
           pip install -t requirements.txt
           pip install pytest
