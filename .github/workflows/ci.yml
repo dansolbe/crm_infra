@@ -21,6 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: |
+          echo "===current dir===="
+          pwd
+          echo "===repo root==="
+          ls -la
+          echo "====docker/app ontent===="
+          cat requirement.txt
           cd docker/app
           pip install -t requirements.txt
           pip install pytest
