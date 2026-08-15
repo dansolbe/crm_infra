@@ -1,0 +1,36 @@
+name: CRM API CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+      uses: actions/checkout@v4
+
+      - name: Set up python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+      - name: Inst dependencies
+        run: |
+          cd docker/app
+          pip install -t requirements.txt
+          pip install pytest
+
+      - name: Run pytest
+        run: |
+         cd docker/app
+         pytest test_app.py
+      
+      - name: Build docker image
+        run: |
+          cd docker/app
+          docker build -t crm-api:test .
